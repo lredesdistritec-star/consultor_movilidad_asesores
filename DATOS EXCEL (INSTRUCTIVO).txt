@@ -1,0 +1,22 @@
+¿Qué encontrarás dentro?
+El archivo tiene cinco hojas organizadas:
+1. Instrucciones: cómo administrar correctamente el catálogo.
+2. Catálogo: productos, marcas, referencias, categorías, estado activo/inactivo y rutas de imágenes.
+3. Precios: valores de contado y crédito, incluyendo variantes de plomo y litio.
+4. Fichas técnicas: potencia, velocidad, autonomía, batería, peso e inclinación, conservando las advertencias de la V3.4.
+5. Historial: espacio para registrar futuras modificaciones.
+También incluí selectores para marcar referencias como activas, inactivas o pendientes.
+
+¿Qué sigue?
+
+Primero: guarda este Excel como nuestro archivo maestro y revísalo. Por ahora no necesitas modificar nada.
+
+Segundo: cuando recibas una nueva lista de precios, actualiza los valores directamente en Excel. Cuando alguna referencia salga del portafolio, cambia su estado a «Inactivo».
+
+Tercero: me compartes el Excel actualizado y la última versión del aplicativo. Compararé los cambios, revisaré inconsistencias y generaré los archivos actualizados.
+
+Cuarto: más adelante implementaremos el importador automático para actualizar el catálogo sin modificar la programación.
+
+Por ahora, el Excel es una base administrativa; todavía no sincroniza automáticamente con la aplicación.
+
+Con esto ya tenemos dos componentes fundamentales del proyecto: el Consultor V3.4 y su Base Maestra de Movilidad. Es un avance importante para administrar el catálogo sin tener que reconstruirlo en cada actualización.

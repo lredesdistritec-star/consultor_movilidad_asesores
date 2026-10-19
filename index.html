@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DISTRITEC | Consultor Movilidad V3.5</title>
+<style>
+:root{--g:#58b52b;--g2:#eef9e8;--b:#111315;--muted:#667064;--line:#dce5d8;--warn:#fff5d8;--red:#8b2626}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:#f3f7f1;color:var(--b)}
+.app{max-width:1240px;margin:auto;padding:22px}
+header{display:flex;justify-content:space-between;align-items:center;background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px 20px;gap:16px}
+.brand{display:flex;gap:14px;align-items:center}.logo{width:112px;height:68px;object-fit:contain;background:#111;border-radius:12px;padding:6px}
+h1{margin:0;font-size:23px}.sub{color:var(--muted);font-size:12px;margin-top:4px}.badge{background:var(--g2);color:#37751c;border:1px solid #c4e5b2;padding:8px 11px;border-radius:999px;font-size:11px;font-weight:800}
+.search{display:grid;grid-template-columns:1fr auto;margin:18px 0 10px;background:#111;padding:14px;border-radius:18px;gap:10px}.search input{border:0;outline:0;border-radius:12px;padding:15px;font-size:18px}.search button{border:0;border-radius:12px;background:var(--g);font-weight:900;padding:0 22px;cursor:pointer}
+.quick{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0 14px}.quick button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 13px;cursor:pointer;font-weight:600}.quick button.active{background:#111;color:#fff;border-color:#111}
+.notice{background:var(--warn);border:1px solid #eccb66;border-radius:12px;padding:10px 13px;font-size:12px;margin:10px 0 16px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}.toolbar select{border:1px solid var(--line);padding:9px;border-radius:9px;background:#fff}#count{font-size:12px;color:var(--muted)}
+.filters{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.filters label{font-size:12px;font-weight:700}.filters select{max-width:200px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:15px}.card{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 6px 18px rgba(25,45,18,.04)}
+.hero{height:210px;background:#f8faf7;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--line)}.hero img{width:100%;height:100%;object-fit:contain}.noimg{color:#899286;font-size:12px;padding:20px;text-align:center}
+.body{padding:16px}.top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}.ref{background:#111;color:#fff;border-radius:999px;padding:5px 8px;font-size:11px;font-weight:800}.brandtag{background:var(--g2);color:#39761e;border-radius:999px;padding:5px 8px;font-size:10px;font-weight:800}
+.name-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px}.name{font-size:21px;font-weight:900}.battery-select{border:1px solid #b9ddaa;background:#f3faef;border-radius:10px;padding:8px 28px 8px 10px;font-weight:800;color:#39761e;max-width:145px}.battery-pill{font-size:11px;font-weight:800;color:#39761e;background:#f3faef;border:1px solid #c9e7b9;padding:6px 9px;border-radius:999px;white-space:nowrap}
+.type{font-size:12px;color:var(--muted);margin-top:3px}
+.prices{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:13px 0}.price{background:#fafcf9;border:1px solid var(--line);border-radius:12px;padding:10px}.price.credit{background:#f1faed;border-color:#c9e7b9}.lab{font-size:10px;text-transform:uppercase;color:var(--muted);font-weight:800}.val{font-size:18px;font-weight:900;margin-top:3px}
+.tech{border-top:1px dashed var(--line);padding-top:12px}.tech h3{font-size:13px;margin:0 0 8px}.specs{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}.spec{background:#f5f8f4;border-radius:9px;padding:8px;font-size:11px}.spec b{display:block;margin-bottom:2px}
+.trace{font-size:10px;color:#63705f;margin-top:8px}.warning{background:#fff1f1;color:var(--red);border:1px solid #efc8c8;padding:8px;border-radius:9px;font-size:11px;margin-top:8px}.missing{background:#f5f6f4;color:#6b7369;border:1px dashed #cdd5ca;padding:10px;border-radius:10px;font-size:11px}
+.questions{margin-top:10px;background:#f8fbf7;border-left:4px solid var(--g);padding:9px 10px;font-size:11px;line-height:1.45}.notes{width:100%;margin-top:9px;min-height:58px;border:1px solid var(--line);border-radius:9px;padding:8px;font:inherit}.actions{display:flex;gap:7px;margin-top:8px}.actions button{flex:1;border:0;border-radius:9px;padding:9px;font-weight:800;cursor:pointer}.copy{background:#111;color:#fff}.save{background:var(--g)}
+footer{font-size:11px;color:var(--muted);text-align:center;padding:22px}
+@media(max-width:600px){.app{padding:10px}.badge{display:none}.search{grid-template-columns:1fr}.search button{padding:12px}.grid{grid-template-columns:1fr}.name-row{align-items:flex-start}.battery-select{max-width:125px}}
+html{
+  scroll-behavior:smooth;
+}
+
+.back-top{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:999;
+  display:flex;
+  align-items:center;
+  gap:7px;
+  padding:11px 15px;
+  border-radius:999px;
+  background:#111315;
+  color:#fff;
+  text-decoration:none;
+  font-size:12px;
+  font-weight:800;
+  box-shadow:0 8px 22px rgba(0,0,0,.22);
+  transition:transform .2s ease, background .2s ease;
+}
+
+.back-top:hover{
+  background:#58b52b;
+  transform:translateY(-2px);
+}
+
+@media(max-width:600px){
+  .back-top{
+    right:12px;
+    bottom:12px;
+    padding:10px 13px;
+  }
+}
+@media(max-width:650px){.toolbar{align-items:flex-start;flex-direction:column}.filters{justify-content:flex-start}.filters select{max-width:170px}}
+</style>
+</head>
+<body><div class="app" id="top">
+<header>
+  <div class="brand"><img class="logo" src="assets/logo.png" alt="DISTRITEC">
+  <div><h1>Consultor de Movilidad V3.5</h1><div class="sub">Precios + ficha técnica + selección de batería</div></div></div>
+  <div class="badge">V3.5 • OFFLINE</div>
+</header>
+
+<div class="search"><input id="q" placeholder="Busca: camellito, raptor, 350W, patineta..." autofocus><button onclick="run()">BUSCAR</button></div>
+
+<div class="quick" id="quick">
+  <button data-filter="camellito">Camellito</button>
+  <button data-filter="raptor">Raptor</button>
+  <button data-filter="patineta">Patinetas</button>
+  <button data-filter="litio">Litio</button>
+  <button data-filter="trimoto">Trimotos</button>
+  <button data-filter="motoled">Motoled</button>
+  <button data-filter="">Ver todo</button>
+</div>
+
+<div class="notice"><b>Crédito base:</b> sujeto a estudio, plazo, tasa e intereses de la financiera. Cuando un mismo vehículo está disponible en <b>Plomo o Litio</b>, usa el selector junto al nombre: el precio cambia sin duplicar la ficha.</div>
+
+<div class="toolbar"><div id="count"></div><div class="filters">
+<label for="priceRange">Rango de precios:</label><select id="priceRange" aria-label="Filtrar por rango de precios"><option value="">Todos los precios</option><option value="0:2000000">Menos de $2 millones</option><option value="2000000:3000000">$2 a $3 millones</option><option value="3000000:4000000">$3 a $4 millones</option><option value="4000000:5000000">$4 a $5 millones</option><option value="5000000:7000000">$5 a $7 millones</option><option value="7000000:10000000">$7 a $10 millones</option><option value="10000000:Infinity">$10 millones o más</option></select>
+<select id="brand" aria-label="Filtrar por marca"><option value="">Todas las marcas</option></select></div></div>
+<div id="results" class="grid"></div>
+<footer>Pesos e inclinaciones orientativos: no sustituyen la capacidad máxima o pendiente certificada por fabricante. Consultar ficha técnica antes de ofrecer el vehículo.<br>Fotos: ruta <b>assets/movilidad/</b> (formatos JPG o PNG, según cada ficha). El rango se calcula con el precio de contado de la batería seleccionada. Las variantes Litio comparten la ficha técnica del mismo modelo y cambian únicamente la opción/precio según la lista suministrada.</footer>
+
+</div>
+
+<a class="back-top" href="#top">↑ Subir</a>
+
+<script src="app.js"></script>
+</body>
+</html>
